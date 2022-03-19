@@ -21,14 +21,10 @@ source .venv/bin/activate
 make docker_build
 
 #Start application
-make start
-
-#Start Jaeger
 make run
 
-#Start performance test - loucust
-pip install -r test_requirements.txt
-make perf_test
+#Start Jaeger
+make start
 
 ```
 
@@ -39,11 +35,14 @@ make srv_random_trafic_complex_slow_db_and_svc
 make srv_random_trafic_complex_failed_third_party
 ```
 
-To bring more traffic:
+To bring more traffic: (using loucust)
 
 ```bash
+pip install -r test_requirements.txt
 make perf_test
 ```
+
+Open [http://localhost:8089](http://localhost:8089) to see Loucust UI.
 
 ## Reading materials
 
