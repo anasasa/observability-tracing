@@ -5,6 +5,7 @@
 *Please add your notes*
 
 ```bash
+20220319 - updated version
 ```
 
 ## Developemnt
@@ -16,11 +17,19 @@ source .venv/bin/activate
 ```
 
 ```bash
-# start all-jeager
-docker compose up -d jaeger
+# Prepare application
+make docker_build
 
-export JAEGER_HOST=127.0.0.1
+#Start application
+make start
+
+#Start Jaeger
 make run
+
+#Start performance test - loucust
+pip install -r test_requirements.txt
+make perf_test
+
 ```
 
 Open [http://localhost:16686](http://localhost:16686) to see Jaeger UI.
